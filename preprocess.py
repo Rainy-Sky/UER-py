@@ -12,8 +12,10 @@ def main():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     # Path options.
+    # 训练语料
     parser.add_argument("--corpus_path", type=str, required=True,
                         help="Path of the corpus for pretraining.")
+    # 单词表
     parser.add_argument("--vocab_path", default=None, type=str,
                         help="Path of the vocabulary file.")
     parser.add_argument("--spm_model_path", default=None, type=str,
@@ -62,7 +64,7 @@ def main():
     args = parser.parse_args()
 
     # Dynamic masking.
-    if args.dynamic_masking:
+    if args.dynamic_masking: 
         args.dup_factor = 1
 
     # Build tokenizer.
